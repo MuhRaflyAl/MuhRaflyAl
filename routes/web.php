@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+use App\Models\Produk;
+use App\Models\Pengguna;
+use App\Models\Telepon;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+|/
 */
 
 Route::get('/', function () {
@@ -44,3 +48,31 @@ Route ::get('/kontak',function () {
     return view ('biodata3');
 });
 
+
+Route::get('/post', function () {
+   //menampilkan semua data 
+    $posts = Post::find(3);
+
+    return $posts;
+    //return view('tampil_post', compact('posts'));
+
+});
+
+Route::get('/produk', function () {
+
+    $produks = Produk::all();
+
+    return view('tampil_produk', compact('produks'));
+});
+
+Route::get('/pengguna', function () {
+    $penggunas = Pengguna::all();
+
+    return view('tampil_pengguna', compact('penggunas'));
+});
+
+Route::get('/telepon', function () {
+    $telepons = Telepon::all();
+
+    return view('tampil_telepon', compact('telepons'));;
+});
