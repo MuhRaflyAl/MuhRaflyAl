@@ -5,6 +5,8 @@ use App\Models\Post;
 use App\Models\Produk;
 use App\Models\Pengguna;
 use App\Models\Telepon;
+use App\Models\Merk;
+use App\Models\Produk2;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,4 +77,16 @@ Route::get('/telepon', function () {
     $telepons = Telepon::all();
 
     return view('tampil_telepon', compact('telepons'));;
+});
+
+Route::get('/merk', function () {
+    $merks = Merk::all();
+
+    return view('tampil_merks', compact('merks'));
+});
+
+Route::get('produk2', function () {
+    $produks = Produk2::all();
+
+    return view('tampil_produks2', compact('produks'));
 });
